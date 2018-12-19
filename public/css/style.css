@@ -1,0 +1,48 @@
+body.bg-light {
+    margin-top: -55px
+}
+
+.sidebar {
+    margin-top: 50px
+}
+
+nav.navbar.navbar-expand-md.navbar-light.navbar-laravel {
+    background-color: #ee6e73;
+}
+
+a.navbar-brand.brand {
+    color: white;
+    font-weight: bold;
+}
+
+a#navbarDropdown.nav-link.dropdown-toggle.toggle {
+    color: white;
+}
+
+.d-flex.align-items-center.p-3.my-3.text-white-50.bg-purple.rounded.shadow-sm.lor {
+    background-color: cadetblue;
+}
+
+div.col-md-8.login {
+    margin-top: 50px
+}
+
+div.col-md-8.register {
+    margin-top: 50px
+}
+
+div.card-header {
+    background-color: cadetblue
+}
+
+div.card-header.color {
+    color: white
+}
+
+div.content {
+    margin-top: 66px;
+}
+
+h5.card-header.header {
+    background-color: #ee6e73;
+}
