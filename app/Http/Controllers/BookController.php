@@ -23,7 +23,7 @@ class BookController extends Controller
     }
     function convert_book_data_to_html()
     {
-        $customer_data = Book::all();
+        $book_data = Book::all();
         $output = '
             <div align="right">2019</div>
             <h3 align="center">Laporan Buku Bulan Desember</h3>
@@ -36,14 +36,14 @@ class BookController extends Controller
             <th style="border: 1px solid; padding:12px;" width="20%">Jenis Buku</th>
         </tr>
             ';
-        foreach ($customer_data as $customer) {
+        foreach ($book_data as $books) {
             $output .= '
             <tr>
-            <td style="border: 1px solid; padding:12px;">' . $customer->judul . '</td>
-            <td style="border: 1px solid; padding:12px;">' . $customer->penerbit . '</td>
-            <td style="border: 1px solid; padding:12px;">' . $customer->pengarang . '</td>
-            <td style="border: 1px solid; padding:12px;">' . $customer->tahun . '</td>
-            <td style="border: 1px solid; padding:12px;">' . $customer->jenis . '</td>
+            <td style="border: 1px solid; padding:12px;">' . $books->judul . '</td>
+            <td style="border: 1px solid; padding:12px;">' . $books->penerbit . '</td>
+            <td style="border: 1px solid; padding:12px;">' . $books->pengarang . '</td>
+            <td style="border: 1px solid; padding:12px;">' . $books->tahun . '</td>
+            <td style="border: 1px solid; padding:12px;">' . $books->jenis . '</td>
             </tr>
             ';
         }

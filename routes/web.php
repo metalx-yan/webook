@@ -17,7 +17,7 @@ Route::resource('books', 'BookController')->middleware('auth');
 //     return view('books.pdf');
 // });
 
-Route::get('/pdf/file', 'BookController@redir')->name('redir');
+// Route::get('/pdf/file', 'BookController@redir')->name('redir');
 
 Route::get('/pdf/docs/', 'BookController@pdf')->name('pdf');
 

@@ -3,16 +3,22 @@
 @section('title', 'Add Book')
 
 @section('content')
-   
+
 
 <div class="container">
     <form action=" {{ route('books.store') }}" method="POST">
-@csrf
-        <div class="form" style="margin-top:50px;">
-                
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-2"></div>
+        <div class="row">
+            <div class="col-md-5" ></div>
+            <div class="col-md-7" style="margin-top:10px;">
+                <b><h1 class="text-info">Create Book </h1></b>
+            </div>    
+        </div>
+            @csrf
+            <div class="form" style="margin-top:50px;">
+                    
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-2"></div>
                         <div class="col-md-2">
                             <label for="exampleFormControlInput1">Title</label><hr>
                         </div>

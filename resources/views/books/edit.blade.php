@@ -7,6 +7,12 @@
 
 <div class="container">
     <form action=" {{ route('books.update', $book->id) }}" method="POST">
+        <div class="row">
+            <div class="col-md-5" ></div>
+            <div class="col-md-7" style="margin-top:10px;">
+                <b><h1 class="text-info">Edit Book</h1></b>
+            </div>    
+        </div>
                 @csrf
 				@method('PUT')
         <div class="form" style="margin-top:50px;">
