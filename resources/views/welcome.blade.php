@@ -81,9 +81,28 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Rahmat Cinta!!!
+                Loops
                 </div>
+                    
+                    <form action="">
 
+                        <div class="form-group">
+                            <label for="">Category</label>
+                            <select name="category" id="category" class="form-control">
+                                <option value=""></option>
+                                @foreach ($category as $categor)
+                                    <option value="{{ $categor->id }}">{{ $categor->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Sub Category</label>
+                            <select name="subcategory" id="subcategory" class="form-control">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </form>
                 {{-- <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
@@ -94,5 +113,28 @@
                 </div> --}}
             </div>
         </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+        <script>
+
+            $('#category').on('change', function(e){
+                console.log(e);
+
+                var cat_id = e.target.value;
+
+
+                jQuery.get('/ajax-subcat?cat_id=' + cat_id, function(data) {
+                    //success data
+                    $('#subcategory').empty();
+                    jQuery.each(data, function(index, subcatObj){
+                        $('#subcategory').append('<option value="'+index.id+'">'+subcatObj.name+'</option>');
+
+                    });
+
+                });
+            });
+        </script>
+
+
     </body>
 </html>

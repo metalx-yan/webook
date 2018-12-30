@@ -22,9 +22,21 @@ Route::resource('books', 'BookController')->middleware('auth');
 Route::get('/pdf/docs/', 'BookController@pdf')->name('pdf');
 
 Route::get('/', function () {
-    return view('welcome');
+
+	$category = App\Category::all();
+
+    return view('welcome')->with('category', $category);
 })->middleware('auth');
+
+Route::get('/ajax-subcat', function() {
+	$cat_id = Illuminate\Support\Facades\Input::get('cat_id');
+
+    $subcategories = App\SubCategory::where('category_id', $cat_id)->get();
+
+    return Response::json($subcategories);
+
+});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
