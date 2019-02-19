@@ -15,40 +15,17 @@ class BookController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function pdf()
-    {
-
+    {   
+        $book_data = Book::all();
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML($this->convert_book_data_to_html());
+        $pdf->loadHTML(view('books.pdf', compact('book_data')))->setPaper('a4', 'landscape');
         return $pdf->stream();
     }
-    function convert_book_data_to_html()
+    public function convert_book_data_to_html()
     {
         $book_data = Book::all();
-        $output = '
-            <div align="right">2019</div>
-            <h3 align="center">Laporan Buku Bulan Desember</h3>
-            <table width="100%" style="border-collapse: collapse; border: 0px;">
-            <tr>
-            <th style="border: 1px solid; padding:12px;" width="20%">Judul</th>
-            <th style="border: 1px solid; padding:12px;" width="30%">Penerbit</th>
-            <th style="border: 1px solid; padding:12px;" width="15%">Pengarang</th>
-            <th style="border: 1px solid; padding:12px;" width="15%">Tahun</th>
-            <th style="border: 1px solid; padding:12px;" width="20%">Jenis Buku</th>
-        </tr>
-            ';
-        foreach ($book_data as $books) {
-            $output .= '
-            <tr>
-            <td style="border: 1px solid; padding:12px;">' . $books->judul . '</td>
-            <td style="border: 1px solid; padding:12px;">' . $books->penerbit . '</td>
-            <td style="border: 1px solid; padding:12px;">' . $books->pengarang . '</td>
-            <td style="border: 1px solid; padding:12px;">' . $books->tahun . '</td>
-            <td style="border: 1px solid; padding:12px;">' . $books->jenis . '</td>
-            </tr>
-            ';
-        }
-        $output .= '</table>';
-        return $output;
+
+        return view('books.pdf', compact('book_data','output'));
     }
 
     public function index()

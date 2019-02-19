@@ -26,7 +26,7 @@
                 <div class="media text-muted pt-3">
                     <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt="" class="mr-2 rounded">
                     <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                        <a href=" {{ route('pdf') }}" class="btn btn-outline-secondary form-control">Report Books</a>
+                        <a href=" {{ route('pdf') }}" class="btn btn-outline-secondary form-control" target="_blank">Report Books</a>
                     </p>
                 </div>
                 
